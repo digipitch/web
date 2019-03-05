@@ -294,3 +294,88 @@ html
   body
     h1 Hello World!
 ```
+#### Modified file "app.js"
+Added error handler:
+```
+// error handlers
+app.use((err, req, res, next) => {
+  res.status(err.status || 500);
+  res.render('error', {
+    message: err.message,
+    error: app.get('env') === 'development' ? err : {},
+  });
+  next();
+});
+```
+#### Modified file "app.js"
+Added 404 error handler
+```
+// catch 404 and forward to error handler
+app.use((req, res, next) => {
+  const err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+```
+#### Modified file "app.js"
+Added serving static files from 'public' folder
+```
+// serve static files from 'public'
+app.use(express.static(path.join(__dirname, './public')));
+```
+#### Installed module 'dotenv'
+```
+npm install --save dotenv
+```
+#### Modified file "app.js"
+```
+const dotenv = require('dotenv');
+
+// use dotenv
+dotenv.config({
+  silent: true;
+});
+```
+#### Created file ".env.example"
+Contents:
+```
+# Example ENV variables file
+```
+#### Created file ".env"
+Contents:
+```
+# ENV variables file
+```
+#### Installed module 'morgan' for logging
+```
+npm install --save morgan
+```
+#### Modified file "app.js"
+```
+const logger = require('morgan');
+
+// logger
+app.use(logger('combined'));
+```
+#### Installed module 'body-parser'
+```
+npm install --save body-parser
+```
+#### Modified file "app.js"
+```
+const bodyParser = require('body-parser');
+
+// body parser
+app.use(bodyParser.json());
+```
+#### Installed module 'cookie-parser'
+```
+npm install --save cookie-parser
+```
+#### Modified file "app.js"
+```
+const cookieParser = require('cookie-parser');
+
+// cookie parser
+app.use(cookieParser());
+```
