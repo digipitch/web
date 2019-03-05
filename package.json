@@ -1,0 +1,26 @@
+{
+  "name": "digipitch-mainsite",
+  "version": "1.0.0",
+  "description": "The Web Server for Digipitch",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digipitch/web.git"
+  },
+  "keywords": [
+    "digipitch"
+  ],
+  "author": "Paul D. Dayton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/digipitch/web/issues"
+  },
+  "homepage": "https://github.com/digipitch/web#readme"
+}

@@ -1,2 +1,2 @@
-# web
-Web server for Digipitch
+# Digipitch Main Website 
+Web Server for Digipitch
