@@ -59,10 +59,10 @@ The updated ".eslintrc" file contents:
   }
 }
 ```
-#### Installed ESlint 1.8.0 exstension in VS Code
+#### Installed ESlint 1.8.0 extension in VS Code
 Clicked ESLint 1.8.0 in Visual Studio Code Extensions view
 
-#### Added npmn script for Linting
+#### Added npm script for Linting
 In file "package.json", updated "scripts" to include:
 ```
 "lint": "eslint . --ext .js,.jsx",
@@ -80,3 +80,33 @@ Added "pre-commit" section to package.json:
 ]
 ```
 This keeps commits from happening if there are linting errors
+
+# Dev Notes during Express installation
+#### Installed Express module 4.16.4
+```
+npm install --save express
+```
+#### Installed http module
+```
+npm install --save http
+```
+#### Update file "index.js"
+new content:
+```
+const express = require('express');
+const http = require('http');
+
+// Express app setup
+const app = express();
+
+const server = http.createServer(app);
+server.listen(3000);
+server.on('listening', () => {
+  // eslint-disable-next-line no-console
+  console.log('Server is listening on port: 3000');
+});
+
+app.get('*', (req, res) => {
+  res.end('Hello World!');
+});
+```
