@@ -6,8 +6,20 @@
   "dependencies": {
     "express": "^4.16.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^5.15.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "pre-commit": "^1.2.2"
+  },
+  "pre-commit": [
+    "lint"
+  ],  
   "scripts": {
+    "start": "node index.js",
+    "lint": "eslint . --ext .js,.jsx",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
