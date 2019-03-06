@@ -4,16 +4,24 @@
   "description": "The Web Server for Digipitch",
   "main": "index.js",
   "dependencies": {
+    "@ljharb/eslint-config": "^13.1.1",
+    "acorn-jsx": "^5.0.1",
+    "babel-eslint": "^9.0.0",
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.4",
+    "create-react-app": "^2.1.5",
     "dotenv": "^6.2.0",
+    "eslint-config-dev": "^2.0.0",
+    "eslint-config-react-app": "^3.0.7",
+    "eslint-plugin-flowtype": "^2.50.3",
     "express": "^4.16.4",
     "http": "0.0.0",
     "morgan": "^1.9.1",
-    "pug": "^2.0.3"
+    "pug": "^2.0.3",
+    "react": "^16.8.4"
   },
   "devDependencies": {
-    "eslint": "^5.15.1",
+    "eslint": "5.12.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",

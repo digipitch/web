@@ -2,6 +2,9 @@
 Web Server for Digipitch
 
 # Dev Notes during initial setup
+First part of set up based on 
+https://blog.cloudboost.io/create-a-react-application-from-scratch-part-1-introduction-b2e66dfb3aae
+
 #### Created file "package.json"
 ```sh
 ran "npm init" to create package.json
@@ -34,8 +37,9 @@ trim_trailing_whitespace = false
 }
 ```
 #### Installed ESLint
+had to re-do this with version 5.12.0 specified for React
 ```
-ran "npm install --save-dev eslint" to add ESLint
+npm install --save-dev eslint@5.12.0
 ```
 #### Installed AirBnB Style guide and dependencies:
 ```
@@ -160,7 +164,7 @@ function normalizePort(val) {
 /**
  * Get port from environment and store in Express.
  */
-const port = normalizePort(process.env.PORT || 3000);
+const port = normalizePort(process.env.PORT || 5000);
 app.set('port', port);
 /**
  * Create HTTP server.
@@ -379,3 +383,231 @@ const cookieParser = require('cookie-parser');
 // cookie parser
 app.use(cookieParser());
 ```
+# Setting up React with Express
+based on https://dev.to/nburgess/creating-a-react-app-with-react-router-and-an-express-backend-33l3
+
+#### Modified file "app.js"
+Added static route for React files before // routes call:
+```
+// serve static files from the React app
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+```
+#### Modified file "routers/index.js"
+Commented out old * route and Added content:
+```
+/* GET API Test List */
+
+router.get('/api/getList', (req, res) => {
+  const list = ['item1', 'item2', 'item3'];
+  res.json(list);
+  // eslint-disable-next-line no-console
+  console.log('Sent list of items');
+});
+
+/* GET home page. */
+router.get('*', (req, res) => {
+  res.sendFile(path.join(`${__dirname}/client/build/index.html`));
+});
+
+```
+#### Installed create-react-app module
+```
+npm install -g create-react-app
+```
+#### Created the React app in client folder
+```
+create-react-app client
+```
+received message:
+```
+Success! Created client at D:\Users\Development\github\web\client
+Inside that directory, you can run several commands:
+
+  npm start
+    Starts the development server.
+
+  npm run build
+    Bundles the app into static files for production.
+
+  npm test
+    Starts the test runner.
+
+  npm run eject
+    Removes this tool and copies build dependencies, configuration files
+    and scripts into the app directory. If you do this, you can’t go back!
+
+We suggest that you begin by typing:
+
+  cd client
+  npm start
+
+Happy hacking!
+```
+Tried running, got error about eslint, 
+had to remove node-modules in root and /client 
+and then npm install both project directories.
+That resolved eslint issue. React running successfully
+
+#### Added React-Router and two pages, Home and List
+Installed package 'react-router-dom':
+```
+npm install --save react-router-dom
+npm install --save typescript@*
+npm install -g react@^5  //probably didn't need to do this
+```
+
+Modified file "/client/src/index.js", commenting out existing and inserting
+content:
+```
+import React from 'react';
+import { render } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+
+import './index.css';
+import App from './App/App';
+
+render((
+    <BrowserRouter>
+        <App/>
+    </BrowserRouter>
+), document.getElementById('root'));
+```
+
+Modified file "/client/src/App.js", commenting out existing and inserting
+content:
+```
+import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import './App.css';
+import Home from './pages/Home';
+import List from './pages/List';
+
+class App extends Component {
+  render() {
+    const App = () => (
+      <div>
+        <Switch>
+          <Route exact path='/' component={Home}/>
+          <Route path='/list' component={List}/>
+        </Switch>
+      </div>
+    )
+    return (
+      <Switch>
+        <App/>
+      </Switch>
+    );
+  }
+}
+
+export default App;
+```
+
+Added folders to "/client/src":
+```
+App
+ pages
+```
+
+Moved files "App.css" and "App.js" and "logo.svg" into new App folder
+
+Created file "/client/src/App/pages/Home.js" and inserted
+content:
+```
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
+
+class Home extends Component {
+  render() {
+    return (
+    <div className="App">
+      <h1>Project Home</h1>
+      {/* Link to List.js */}
+      <Link to={'./list'}>
+        <button variant="raised">
+            My List
+        </button>
+      </Link>
+    </div>
+    );
+  }
+}
+export default Home;
+```
+
+Created file "/client/src/App/pages/List.js" and inserted
+content:
+```
+import React, { Component } from 'react';
+
+class List extends Component {
+  // Initialize the state
+  constructor(props){
+    super(props);
+    this.state = {
+      list: []
+    }
+  }
+
+  // Fetch the list on first mount
+  componentDidMount() {
+    this.getList();
+  }
+
+  // Retrieves the list of items from the Express app
+  getList = () => {
+    fetch('/api/getList')
+    .then(res => res.json())
+    .then(list => this.setState({ list }))
+  }
+
+  render() {
+    const { list } = this.state;
+
+    return (
+      <div className="App">
+        <h1>List of Items</h1>
+        {/* Check to see if any items are found*/}
+        {list.length ? (
+          <div>
+            {/* Render the list of items */}
+            {list.map((item) => {
+              return(
+                <div>
+                  {item}
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <div>
+            <h2>No List Items Found</h2>
+          </div>
+        )
+      }
+      </div>
+    );
+  }
+}
+
+export default List;
+```
+
+#### Modified file "/client/package.json" 
+To start backend and client apps with one script
+changed script 'start':
+```
+ "start": "node ../server/index.js | react-scripts start",
+```
+
+# Starting Application 
+In folder "/client:
+```
+npm start
+```
+
+This should start both projects and open a browser to the Home Page.
+
+# END OF README
