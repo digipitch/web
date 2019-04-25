@@ -18,9 +18,19 @@ import { BrowserRouter } from 'react-router-dom';
 
 import './index.css';
 import App from './App/App';
+import SubApp from './App/SubApp';
+import UserSettings from './App/pages/particles/UserSettings';
 
 render((
     <BrowserRouter>
         <App/>
     </BrowserRouter>
 ), document.getElementById('root'));
+
+render((
+    <BrowserRouter>
+        <SubApp/>
+    </BrowserRouter>
+), document.getElementById('subroot'));
+
+render(<UserSettings/>, document.getElementById('usersettings'));

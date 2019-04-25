@@ -11,7 +11,19 @@ router.get('/api/getList', (req, res) => {
   console.log('Sent list of items');
 });
 
-/* GET home page. */
+router.get('/api/getSettings', (req, res) => {
+  const settings = {
+    userName: 'foobar1',
+    firstName: 'Paul',
+    middleName: 'David',
+    lastName: 'Dayton',
+  };
+  res.json(settings);
+  // eslint-disable-next-line no-console
+  console.log('Sent settings');
+});
+
+/* GET React Starting page. */
 router.get('*', (req, res) => {
   res.sendFile(path.join(`${__dirname}/client/build/index.html`));
 });

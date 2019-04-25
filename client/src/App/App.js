@@ -31,16 +31,25 @@ export default App;
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import Home from './pages/Home';
-import List from './pages/List';
-
+import Frame from './pages/Frame';
 class App extends Component {
   render() {
     const App = () => (
       <div>
         <Switch>
-          <Route exact path='/' component={Home}/>
-          <Route path='/list' component={List}/>
+          <Route exact path='/' component={Frame}/>
+          <Route path='/dashboard' component={Frame}/>
+          <Route path='/network' component={Frame}/>
+          <Route path='/screenwriter' component={Frame}/>
+          <Route path='/research' component={Frame}/>
+          <Route path='/indexcards' component={Frame}/>
+          <Route path='/statistics' component={Frame}/>
+          <Route path='/digitalpitch' component={Frame}/>
+          <Route path='/pitchbible1' component={Frame}/>
+          <Route path='/pitchbible2' component={Frame}/>
+          <Route path='/settings' component={Frame}/>
+          <Route path='/empty' component={Frame}/>
+          <Route path='/list' component={Frame}/>
         </Switch>
       </div>
     )
