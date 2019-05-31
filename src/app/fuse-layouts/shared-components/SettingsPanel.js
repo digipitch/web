@@ -96,7 +96,7 @@ class SettingsPanel extends Component {
                             <Icon>close</Icon>
                         </IconButton>
 
-                        <Typography className="mb-32" variant="h6">Theme Settings</Typography>
+                        <Typography className="mb-32" variant="h6">Digipitch Settings</Typography>
 
                         <FuseSettings/>
 

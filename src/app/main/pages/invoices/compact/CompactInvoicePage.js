@@ -133,7 +133,7 @@ class CompactInvoicePage extends Component {
 
                                     <div className={classNames(classes.seller, "flex items-center p-16")}>
 
-                                        <img className="w-80" src="assets/images/logos/fuse.svg" alt="logo"/>
+                                        <img className="w-80" src="assets/images/logos/dp-logo-white.svg" alt="Digipitch"/>
 
                                         <div className={classNames(classes.divider, "w-px ml-8 mr-16 h-96 opacity-50")}/>
 

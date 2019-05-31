@@ -36,19 +36,18 @@ class Login extends Component {
                 <div className="flex flex-col flex-no-grow items-center text-white p-16 text-center md:p-128 md:items-start md:flex-no-shrink md:flex-1 md:text-left">
 
                     <FuseAnimate animation="transition.expandIn">
-                        <img className="w-128 mb-32" src="assets/images/logos/fuse.svg" alt="logo"/>
+                        <img className="w-128 mb-32" src="assets/images/logos/dp-logo-dk-blue.svg" alt="Digipitch"/>
                     </FuseAnimate>
 
                     <FuseAnimate animation="transition.slideUpIn" delay={300}>
                         <Typography variant="h3" color="inherit" className="font-light">
-                            Welcome to the FUSE!
+                            Welcome to Digipitch!
                         </Typography>
                     </FuseAnimate>
 
                     <FuseAnimate delay={400}>
                         <Typography variant="subtitle1" color="inherit" className="max-w-512 mt-16">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ullamcorper nisl erat, vel convallis elit fermentum pellentesque. Sed mollis velit
-                            facilisis facilisis.
+                            Welcome to the Digipitch Platform.
                         </Typography>
                     </FuseAnimate>
                 </div>

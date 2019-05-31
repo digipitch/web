@@ -80,8 +80,8 @@ const navigationConfig = [
                 ]
             },
             {
-                'id'   : 'academy',
-                'title': 'Academy',
+                'id'   : 'mentors',
+                'title': 'Mentor Academy',
                 'type' : 'item',
                 'icon' : 'school',
                 'url'  : '/apps/academy'
@@ -165,7 +165,7 @@ const navigationConfig = [
                 'icon'    : 'lock',
                 'badge'   : {
                     'title': 10,
-                    'bg'   : '#525e8a',
+                    'bg'   : '#263b54',
                     'fg'   : '#FFFFFF'
                 },
                 'children': [
@@ -393,7 +393,7 @@ const navigationConfig = [
                         'type'    : 'collapse',
                         'badge'   : {
                             'title': 12,
-                            'bg'   : '#525e8a',
+                            'bg'   : '#263b54',
                             'fg'   : '#FFFFFF'
                         },
                         'children': [
@@ -477,7 +477,7 @@ const navigationConfig = [
                         'type'    : 'collapse',
                         'badge'   : {
                             'title': 8,
-                            'bg'   : '#525e8a',
+                            'bg'   : '#263b54',
                             'fg'   : '#FFFFFF'
                         },
                         'children': [
