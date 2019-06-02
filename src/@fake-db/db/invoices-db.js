@@ -5,17 +5,17 @@ const invoicesDB = {
         {
             'id'      : '5725a6802d',
             'from'    : {
-                'title'  : 'Fuse Inc.',
-                'address': '2810 Country Club Road Cranford, NJ 07016',
-                'phone'  : '+66 123 455 87',
-                'email'  : 'hello@fuseinc.com',
-                'website': 'www.fuseinc.com'
+                'title'  : 'Digipitch Corporation',
+                'address': '7805 E. 89th St. Indianapolis, IN 46256',
+                'phone'  : '(800) 555-1212',
+                'email'  : 'billing@digipitch.com',
+                'website': 'digipitch.com'
             },
             'client'  : {
-                'title'  : 'John Doe',
-                'address': '9301 Wood Street Philadelphia, PA 19111',
-                'phone'  : '+55 552 455 87',
-                'email'  : 'johndoe@mail.com'
+                'title'  : 'Paul Dayton',
+                'address': '9301 Wood Street Indianapolis, IN 46256',
+                'phone'  : '(317) 123-4567',
+                'email'  : 'paul@digipitch.com'
             },
             'number'  : 'P9-0004',
             'date'    : 'Jul 19, 2019',

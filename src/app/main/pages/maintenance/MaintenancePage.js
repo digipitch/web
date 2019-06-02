@@ -24,11 +24,11 @@ const MaintenancePage = ({classes}) => {
                             <img className="w-128 m-32" src="assets/images/logos/fuse.svg" alt="logo"/>
 
                             <Typography variant="subtitle1" className="mb-16">
-                                Closed for scheduled maintenance!
+                                Closed for Scheduled Maintenance!
                             </Typography>
 
                             <Typography color="textSecondary" className="mb-40">
-                                We're sorry for the inconvenience. <br/> Please check back later.
+                                Digipitch is undergoing maintenance at this time. We're sorry for the inconvenience. <br/> Please check back later.
                             </Typography>
 
                         </CardContent>

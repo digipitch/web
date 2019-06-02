@@ -57,7 +57,7 @@ class ModernInvoicePage extends Component {
 
                                         <div className="flex items-center mb-80 print:mb-0">
 
-                                            <img className="w-160 print:w-60" src="assets/images/logos/fuse.svg" alt="logo"/>
+                                            <img className="w-160 print:w-60" src="assets/images/logos/dp-logo-dk-blue.svg" alt="Digipitch"/>
 
                                             <div className={classNames(classes.divider, "mx-48 w-px h-128 print:mx-16")}/>
 

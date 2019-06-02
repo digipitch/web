@@ -48,7 +48,7 @@ class ForgotPasswordPage extends Component {
                             <CardContent className="flex flex-col items-center justify-center p-32">
 
                                 <div className="w-128 m-32">
-                                    <img src="assets/images/logos/fuse.svg" alt="logo"/>
+                                    <img src="assets/images/logos/dp-logo-dk-blue.svg" alt="logo"/>
                                 </div>
 
                                 <Typography variant="h6" className="mt-16 mb-32">RECOVER YOUR PASSWORD</Typography>
